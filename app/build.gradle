@@ -27,5 +27,22 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
     compile "com.android.support:design:26.1.0"
+    compile 'com.orhanobut:logger:2.1.1'
+
+
+
+    //为了滑动返回
+    // appcompat-v7 is required
+// To get SwipeBack feature, rely on both fragmentation & fragmentation-swipeback
+//    compile 'me.yokeyword:fragmentation:1.2.4'
+//// Swipeback is based on fragmentation. Refer to SwipeBackActivity/Fragment for your Customized SupportActivity/Fragment
+//    compile 'me.yokeyword:fragmentation-swipeback:1.2.4'
+//
+//// To simplify the communication between Fragments.
+//    compile 'me.yokeyword:eventbus-activity-scope:1.1.0'
+//// Your EventBus's version
+//    compile 'org.greenrobot:eventbus:3.1.1'
+
+
 
 }

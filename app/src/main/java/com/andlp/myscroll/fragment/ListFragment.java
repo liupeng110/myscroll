@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.andlp.myscroll.R;
 import com.andlp.myscroll.adapter.FragmentsAdapter;
 import com.andlp.myscroll.adapter.ListViewAdapter;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,20 +49,19 @@ public class ListFragment extends BaseFragment {
     private int mScrollX;
 
     public static ListFragment newInstance(String title) {
-
         ListFragment listFragment = new ListFragment();
         Bundle bundle = new Bundle();
         bundle.putString(key, title);
         listFragment.setArguments(bundle);
+        Logger.i("进入 newInstance-title ："+title);
         return listFragment;
     }
 
-    @Override
-    protected void initView(View view) {
-        mViewPager = (ViewPager) view.findViewById(R.id.viewPager);
-        mTextView = (TextView) view.findViewById(R.id.tv_page);
-        mListview = (ListView) view.findViewById(R.id.listview);//lisetview
-        mNoHorizontalScrollView = (ScrollView) view.findViewById(R.id.NoHorizontalScrollView);
+    @Override  protected void initView(View view) {
+        mViewPager = view.findViewById(R.id.viewPager);
+        mTextView = view.findViewById(R.id.tv_page);
+        mListview =   view.findViewById(R.id.listview);//lisetview
+        mNoHorizontalScrollView =   view.findViewById(R.id.NoHorizontalScrollView);
     }
 
     @Override protected int getLayoutId() { return R.layout.fragment_list;  }
@@ -125,7 +125,7 @@ public class ListFragment extends BaseFragment {
         //创建viewpager的数据
         mFragments = new ArrayList<>();
         for (int i = 0; i < mSize; i++) {
-            ImageFragment imageFragment = ImageFragment.newInstance(R.drawable.huoying);
+            ImageFragment imageFragment = ImageFragment.newInstance(R.drawable.you);//huoying
             mFragments.add(imageFragment);
         }
         //创建viewpager的适配器
@@ -136,10 +136,8 @@ public class ListFragment extends BaseFragment {
 //        mViewPager.setFocusable(true);
 //        mViewPager.setFocusableInTouchMode(true);
 //        mViewPager.requestFocus(); //viewpager调试用参数
-
     }
 
     public void onSelected() {  }
-
 
 }

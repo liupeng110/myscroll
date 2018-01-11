@@ -4,23 +4,26 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.andlp.myscroll.adapter.MainViewPagerAdapter;
 import com.andlp.myscroll.fragment.ListFragment;
+import com.andlp.myscroll.swipback.SwipeBackActivity;
+import com.andlp.myscroll.swipback.SwipeBackLayout;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends SwipeBackActivity {
 
     ViewPager mViewPager;
     TabLayout mTabLayout;
     public static  final String TAG="xujun";
 
     private final String[] mTitles=new String[]{
-            "首页","第二","相册","是我的"
+            "首页","第二","相册","我的"
     };
     private ArrayList<Fragment> mFragments;
 
@@ -28,13 +31,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        if (findFragment(HomeFragment.class) == null) {
-//            loadRootFragment(R.id.fl_container, HomeFragment.newInstance());  //load root Fragment
-//        }
+        getSwipeBackLayout().setEdgeOrientation(SwipeBackLayout.EDGE_ALL);
+        Logger.i("进入onCreate");
         initView();
         initdata();
-
     }
 
     private void initdata() {
